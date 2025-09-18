@@ -111,29 +111,17 @@
       </ul>
     </section>
 
-
+    
     <!-- Projects -->
-    <section id="projects" class="py-8 sm:py-10">
-      <h2 class="text-xl sm:text-2xl font-semibold mb-4">{selectedSection}</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {#each projects as p}
-          <Card class="hover:translate-y-[-2px] transition-transform">
-            <div class="space-y-2">
-              <h3 class="text-base font-semibold">{p.title}</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-300">{p.blurb}</p>
-              <div class="flex flex-wrap gap-1.5">
-                {#each p.stack as tag}
-                  <span class="text-[11px] px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 border border-indigo-100/60 dark:border-indigo-900/50">{tag}</span>
-                {/each}
-              </div>
-              {#if p.href}
-                <a href={p.href} class="text-sm underline decoration-dotted hover:opacity-80">Visit</a>
-              {/if}
-            </div>
-          </Card>
-        {/each}
-      </div>
-    </section>
+     {#snippet textBlurb()}
+      <section id="projects" class="py-8 sm:py-10">
+        <h2 class="text-xl sm:text-2xl font-semibold mb-4">{selectedSection}</h2>
+        <p class="text-l">Hello</p>
+      </section>
+    {/snippet}
+
+    <!-- {@render (selectedSection === "" ? coolSnippet : lameSnippet)()} -->
+    {@render (selectedSection === "Overview" ? textBlurb : textBlurb)()}
 
     <!-- Experience -->
     <section id="experience" class="py-8 sm:py-10">
