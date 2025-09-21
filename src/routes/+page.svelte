@@ -1,4 +1,3 @@
-
 <script lang="ts">
   import imageSrc from "$lib/assets/headshot.jpeg";
   import { Card, Button, GradientButton, Clipboard } from "flowbite-svelte";
@@ -11,6 +10,8 @@
     email: "sharathsureshkumar@gmail.com"
   };
 
+  let selectedSection = $state("");
+
   const highlights = [
     "Overview",
     "Computer Vision",
@@ -19,48 +20,16 @@
     "ML Engineering",
     "Software Engineering",
   ];
+  
+  const textdesc: string= {"Overview" : `I’ve spent the past few years designing and deploying AI/ML solutions in business operations, fintech, and beyond — from computer vision systems and generative audio to large-scale LLM workflows. I thrive at the intersection of research and engineering: taking cutting-edge ideas and turning them into reliable, scalable software.
+  What excites me most is where I’m headed: shaping how intelligent systems interact with people, and building platforms that are not only technically elegant but genuinely useful.`, 
+              "Computer Vision" : "500", 
+              "LLM + RAG Workflows" : "white",
+              "Speech Generation" : "I like speech",
+              "ML Engineering" : "ML Engineering",
+              "Software Engineering" : "Hello",}; 
 
-  let selectedSection = $state("");
-  let selectedColor = $state("");
 
-  type Project = {
-    title: string;
-    blurb: string;
-    stack: string[];
-    href?: string;
-  };
-
-  const projects: Project[] = [
-    {
-      title: "CoverMe — Insurtech Wallet",
-      blurb: "Extras cover optimiser with claims analytics and modern UX.",
-      stack: ["SvelteKit", "Supabase", "LLM", "Stripe"],
-      href: "https://coverme.com.co"
-    },
-    {
-      title: "LLM-Ops Platform",
-      blurb: "Eval & tracing for RAG pipelines with Qdrant + LlamaIndex.",
-      stack: ["Python", "Qdrant", "LlamaIndex", "Docker"]
-    },
-    {
-      title: "CV Pose Estimation",
-      blurb: "Ground vehicle pose from monocular video; real-time inference.",
-      stack: ["TensorFlow", "OpenCV", "CUDA"]
-    }
-  ];
-
-  const experience = [
-    {
-      role: "Machine Learning Engineer",
-      org: "Swordfish Computing",
-      time: "Aug 2023 — Present",
-      points: [
-        "Designed & deployed CV/LLM systems for defence use-cases.",
-        "LLM RAG with hybrid search; evals, tracing, prompt tooling.",
-        "Microservices on containers; CI/CD; GPU-aware workloads."
-      ]
-    }
-  ];
 </script>
 
 <!-- Page wrapper -->
@@ -90,10 +59,7 @@
             <span class="text-blue-600 dark:text-blue-400 font-medium">elegant, scalable software</span>.
           </p>
           <div class="flex flex-wrap items-center gap-3 justify-center sm:justify-start">
-            <Button href="#projects" size="sm">View projects</Button>
-            <Button href={links.resume} color="light" size="sm" class="border">
-              View CV
-            </Button>
+            <GradientButton color="purpleToBlue">View Projects</GradientButton>
             <div class="flex gap-4 text-sm">
               <a href={links.github} class="hover:opacity-80" aria-label="GitHub">GitHub</a>
               <a href={links.linkedin} class="hover:opacity-80" aria-label="LinkedIn">LinkedIn</a>
@@ -103,60 +69,41 @@
         </div>
       </div>
 
-      <!-- Highlights -->
-      <ul class="mt-8 flex flex-wrap gap-2">
-        {#each highlights as h}
-          <GradientButton onclick={() => selectedSection = h} color={selectedSection === h ? "purpleToBlue" : "purple"}>{h}</GradientButton>
-        {/each}
-      </ul>
+    <span class="flex items-center py-5 sm:py-7">
+      <span class="h-px flex-1 bg-gray-300"></span>
+      <span class="h-px flex-1 bg-gray-300"></span>
+    </span>
+
+
+<section class="py-16">
+  <div class="text-center">
+    <h2 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+      About Me
+    </h2>
+    <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+      I’ve spent the past few years designing and deploying AI/ML solutions in business operations, fintech, 
+      and beyond — from computer vision systems and generative audio to large-scale LLM workflows. 
+      I thrive at the intersection of research and engineering: taking cutting-edge ideas and turning them 
+      into reliable, scalable software.
+    </p>
+  </div>
+
+  <div class="text-center">
+    <h2 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+      Skills
+    </h2>
+    <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+      I’ve spent the past few years designing and deploying AI/ML solutions in business operations, fintech, 
+      and beyond — from computer vision systems and generative audio to large-scale LLM workflows. 
+      I thrive at the intersection of research and engineering: taking cutting-edge ideas and turning them 
+      into reliable, scalable software.
+    </p>
+  </div>
+</section>
+
+
+
     </section>
-
-    
-    <!-- Projects -->
-     {#snippet textBlurb()}
-      <section id="projects" class="py-8 sm:py-10">
-        <h2 class="text-xl sm:text-2xl font-semibold mb-4">{selectedSection}</h2>
-        <p class="text-l">Hello</p>
-      </section>
-    {/snippet}
-
-    <!-- {@render (selectedSection === "" ? coolSnippet : lameSnippet)()} -->
-    {@render (selectedSection === "Overview" ? textBlurb : textBlurb)()}
-
-    <!-- Experience -->
-    <section id="experience" class="py-8 sm:py-10">
-      <h2 class="text-xl sm:text-2xl font-semibold mb-4">Experience</h2>
-      <div class="space-y-4">
-        {#each experience as e}
-          <Card>
-            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-              <h3 class="text-base font-semibold">{e.role} · <span class="font-normal text-gray-600 dark:text-gray-300">{e.org}</span></h3>
-              <p class="text-xs text-gray-500">{e.time}</p>
-            </div>
-            <ul class="mt-3 list-disc list-inside text-sm space-y-1.5">
-              {#each e.points as pt}
-                <li>{pt}</li>
-              {/each}
-            </ul>
-          </Card>
-        {/each}
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-10 sm:py-12">
-      <Card class="text-center">
-        <h2 class="text-xl sm:text-2xl font-semibold mb-2">Let’s build something great</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
-          Open to roles in ML/AI, LLM-Ops, and platform engineering. Say hello!
-        </p>
-        <div class="flex gap-3 justify-center">
-          <Button href={links.email}>Email me</Button>
-          <Button href={links.linkedin} color="light" class="border">Connect on LinkedIn</Button>
-        </div>
-      </Card>
-    </section>
-  </main>
 
   <!-- Footer -->
   <footer class="py-8 text-center text-xs text-gray-500">
