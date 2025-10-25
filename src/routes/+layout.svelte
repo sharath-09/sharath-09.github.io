@@ -2,10 +2,14 @@
 	import favicon from '$lib/assets/favicon.svg';
 
   import { page } from "$app/state";
-  import {Navbar, NavBrand, NavLi, NavUl, NavHamburger } from "flowbite-svelte";
   let activeUrl = $derived(page.url.pathname)
 
-  import { DarkMode } from "flowbite-svelte";
+  import Navbar from 'flowbite-svelte/Navbar.svelte'
+  import NavBrand from 'flowbite-svelte/NavBrand.svelte'
+  import NavUl from 'flowbite-svelte/NavUl.svelte'
+  import NavLi from 'flowbite-svelte/NavLi.svelte'
+  import NavHamburger from 'flowbite-svelte/NavLi.svelte';
+  import DarkMode from 'flowbite-svelte/DarkMode.svelte';
 
 	let { children } = $props();
   import "../app.css"
@@ -28,7 +32,6 @@
 
   <NavUl class="order-1" {activeUrl}>
     <NavLi href="/">home</NavLi>
-    <NavLi href="/projects">projects</NavLi>
     <NavLi href="/blog">blog</NavLi>
     <NavLi href="/contact">contact</NavLi>
   </NavUl>

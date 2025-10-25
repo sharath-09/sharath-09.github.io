@@ -1,6 +1,7 @@
 <script lang="ts">
   import imageSrc from "$lib/assets/headshot.jpeg";
-  import { Card, GradientButton } from "flowbite-svelte";
+  import Card from "flowbite-svelte/Card.svelte"
+  import GradientButton  from "flowbite-svelte/GradientButton.svelte";
   import { onMount } from "svelte";
   import ArrowUpRightFromSquareOutline from "flowbite-svelte-icons/ArrowUpRightFromSquareOutline.svelte";
 
@@ -32,24 +33,18 @@
       title: "Vector Similarity Search",
       subheading: "Self-learning Project",
       text: "Implements a semantic search engine for RAG workflows in Go. Retrieve semantically similar sentence pairs from a database, given a query string. Optimised for speed."
-    },
+    }
   ]
-  let selectedSection = $state("");
-
-  const highlights = [
-    "Overview",
-    "Computer Vision",
-    "LLM + RAG Workflows",
-    "Speech Generation",
-    "ML Engineering",
-    "Software Engineering",
-  ];
-
-  // Track dark mode state
-  let isDarkMode = $state(false);
+  
+  function scrollToTarget(targetID: string) {
+      const targetElement = document.getElementById(targetID);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
 
   onMount(() => {
-    // Check initial dark mode state
+    // Update state on mount to ensure sync
     isDarkMode = document.documentElement.classList.contains('dark');
 
     // Watch for theme changes
@@ -65,9 +60,9 @@
     return () => observer.disconnect();
   });
 
-  // Derive button color based on theme
-  let buttonColor: string = $derived(isDarkMode ? 'purpleToBlue' : 'pinkToOrange');
+  let isDarkMode = $state(true);
 
+  let buttonColor: string = $derived(isDarkMode ? 'purpleToBlue' : 'pinkToOrange');
 </script>
 
 {#snippet projectCard(title: string, subheading: string, text: string)}
@@ -111,7 +106,7 @@
             <span class="text-blue-600 dark:text-blue-400 font-medium">elegant, scalable software</span>.
           </p>
           <div class="flex flex-wrap items-center gap-3 justify-center sm:justify-start">
-            <GradientButton color={buttonColor}>View Projects</GradientButton>
+            <GradientButton color={buttonColor} onclick={() => scrollToTarget("projects-section")}>View Projects</GradientButton>
             <div class="flex gap-4 text-sm">
               <a href={links.github} class="hover:opacity-80" aria-label="GitHub">GitHub</a>
               <a href={links.linkedin} class="hover:opacity-80" aria-label="LinkedIn">LinkedIn</a>
@@ -152,7 +147,7 @@
     </ul>
   </div>
 
-  <div class="text-center mt-12">
+  <div id="projects-section" class="text-center mt-12">
     <h2 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
       Projects
     </h2>
