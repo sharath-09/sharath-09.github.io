@@ -1,13 +1,17 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
-export const load: PageLoad = ({ params }) => {
-	if (params.post === 'hello-world') {
+export const load: PageLoad = async ({ params }) => {
+	try{
+		const post = await import(`../../../lib/posts/${params.post}.md`)
+
 		return {
-			title: 'Hello world!',
-			content: 'Welcome to our blog. Lorem ipsum dolor sit amet...'
-		};
+			PostContent: post.default,
+			meta: { ...post.metadata, slug: params.post } 
+		}
+	}
+	catch(err){
+		error(404, 'Not Found')
 	}
 
-	error(404, 'Not found');
-};
+}
