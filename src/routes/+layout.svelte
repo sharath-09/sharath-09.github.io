@@ -28,7 +28,6 @@
 
   <NavUl class="order-1" {activeUrl}>
     <NavLi href="/">home</NavLi>
-    <NavLi href="/about">about</NavLi>
     <NavLi href="/projects">projects</NavLi>
     <NavLi href="/blog">blog</NavLi>
     <NavLi href="/contact">contact</NavLi>

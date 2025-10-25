@@ -1,6 +1,6 @@
 <script lang="ts">
   import imageSrc from "$lib/assets/headshot.jpeg";
-  import { Card, Button, GradientButton, Clipboard } from "flowbite-svelte";
+  import { Card, GradientButton } from "flowbite-svelte";
 
   // Update these with your real links/data
   const links = {
@@ -10,6 +10,24 @@
     email: "sharathsureshkumar@gmail.com"
   };
 
+  const projectCards = [
+    {
+      title: "Investigating Adversarial Robustness for Facial Recognition Systems",
+      subheading: "DICTA 2025 Publication",
+      text: ">Assisted in research Investigating the effect of image preprocessing on Facial Recognition Adversarial Systems."
+    },
+    {
+      title: "Pose Estimation of Ground Vehicles",
+      subheading: "Research Study.",
+      text: "Estimating the pose of ground vehicles using RGB Images."
+    },
+    {
+      title: "Deepfake Evaluation Toolkit",
+      subheading: "Research Study",
+      text: "Conducted a scoping study into Lip Sync deepfake technologies, and developed a testing suite to judge the effectiveness of such techniqeus."
+    }
+
+  ]
   let selectedSection = $state("");
 
   const highlights = [
@@ -20,17 +38,20 @@
     "ML Engineering",
     "Software Engineering",
   ];
-  
-  const textdesc: string= {"Overview" : `I’ve spent the past few years designing and deploying AI/ML solutions in business operations, fintech, and beyond — from computer vision systems and generative audio to large-scale LLM workflows. I thrive at the intersection of research and engineering: taking cutting-edge ideas and turning them into reliable, scalable software.
-  What excites me most is where I’m headed: shaping how intelligent systems interact with people, and building platforms that are not only technically elegant but genuinely useful.`, 
-              "Computer Vision" : "500", 
-              "LLM + RAG Workflows" : "white",
-              "Speech Generation" : "I like speech",
-              "ML Engineering" : "ML Engineering",
-              "Software Engineering" : "Hello",}; 
 
 
 </script>
+
+{#snippet projectCard(title: string, subheading: string, text: string)}
+  <Card href="/cards" class="w-full sm:w-80 p-4 sm:p-6 md:p-8">
+    <h5 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex items-start gap-2">
+      <span class="flex-1">{ title }</span>
+    </h5>
+    <p class="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-500 border-b border-gray-200 dark:border-gray-700 pb-3">{ subheading }</p>
+    <p class="leading-relaxed font-normal text-gray-700 dark:text-gray-400">{ text }</p>
+  </Card>
+{/snippet}
+
 
 <!-- Page wrapper -->
 <div class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -81,29 +102,38 @@
       About Me
     </h2>
     <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-      I’ve spent the past few years designing and deploying AI/ML solutions in business operations, fintech, 
+      I’ve spent the past few years designing and deploying AI/ML solutions in defence, fintech, 
       and beyond — from computer vision systems and generative audio to large-scale LLM workflows. 
       I thrive at the intersection of research and engineering: taking cutting-edge ideas and turning them 
       into reliable, scalable software.
     </p>
   </div>
 
-  <div class="text-center">
+  <div class="text-center mt-12">
     <h2 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
       Skills
     </h2>
-    <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-      I’ve spent the past few years designing and deploying AI/ML solutions in business operations, fintech, 
-      and beyond — from computer vision systems and generative audio to large-scale LLM workflows. 
-      I thrive at the intersection of research and engineering: taking cutting-edge ideas and turning them 
-      into reliable, scalable software.
-    </p>
+    <ul class="flex flex-wrap justify-center gap-3 list-none p-0 mt-4">
+      <li class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 px-3 py-1 rounded-full text-sm">Python</li>
+      <li class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 px-3 py-1 rounded-full text-sm">GoLang</li>
+      <li class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 px-3 py-1 rounded-full text-sm">C++</li>
+      <li class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 px-3 py-1 rounded-full text-sm">JavaScript</li>
+    </ul>
   </div>
-</section>
 
+  <div class="text-center mt-12">
+    <h2 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+      Projects
+    </h2>
+    <div class="flex flex-col sm:flex-row flex-wrap items-stretch gap-6 justify-center mt-6">
 
+      {#each projectCards as card}
+        {@render projectCard(card["title"],card["subheading"], card["text"])}
+      {/each}      
+    </div>
+  </div>
 
-    </section>
+  </section>
 
   <!-- Footer -->
   <footer class="py-8 text-center text-xs text-gray-500">
