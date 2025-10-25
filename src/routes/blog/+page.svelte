@@ -1,7 +1,6 @@
-
 <script lang="ts">
 	import type { BlogPost } from '$lib/types/blog';
-	import Card from "flowbite-svelte/Card.svelte"
+	import Card from 'flowbite-svelte/Card.svelte';
 
 	let { data } = $props();
 	const posts: BlogPost[] = data.posts;
@@ -9,7 +8,10 @@
 
 <svelte:head>
 	<title>Blog - Sharath</title>
-	<meta name="description" content="Read my latest thoughts on AI/ML, software engineering, and technology." />
+	<meta
+		name="description"
+		content="Read my latest thoughts on AI/ML, software engineering, and technology."
+	/>
 </svelte:head>
 
 {#snippet blogPost(post: BlogPost)}
@@ -27,10 +29,12 @@
 				</div>
 			{/if}
 
-			<h2 class="text-2xl space-h-3 px-6 pb-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+			<h2
+				class="text-2xl space-h-3 px-6 pb-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+			>
 				{post.title}
 			</h2>
-	
+
 			<div class="space-y-2 px-6 pb-6">
 				<!-- Meta Info -->
 				<div class="flex flex-wrap items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
@@ -39,7 +43,9 @@
 						<span class="text-gray-400 dark:text-gray-600">•</span>
 						<div class="flex flex-wrap gap-2">
 							{#each post.categories as category}
-								<span class="bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 px-2.5 py-0.5 rounded-full text-xs font-medium">
+								<span
+									class="bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 px-2.5 py-0.5 rounded-full text-xs font-medium"
+								>
 									{category}
 								</span>
 							{/each}
@@ -56,11 +62,23 @@
 
 				<!-- Read More Link -->
 				<div class="pt-2 flex items-center gap-2">
-					<span class="text-indigo-600 dark:text-indigo-400 font-medium group-hover:gap-3 transition-all">
+					<span
+						class="text-indigo-600 dark:text-indigo-400 font-medium group-hover:gap-3 transition-all"
+					>
 						Read more
 					</span>
-					<svg class="w-4 h-4 text-indigo-600 dark:text-indigo-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+					<svg
+						class="w-4 h-4 text-indigo-600 dark:text-indigo-400 group-hover:translate-x-1 transition-transform"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M9 5l7 7-7 7"
+						/>
 					</svg>
 				</div>
 			</div>
@@ -73,7 +91,9 @@
 	<main class="max-w-5xl mx-auto px-6 py-10 sm:py-14">
 		<!-- Page Header -->
 		<div class="mb-12">
-			<h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100 mb-4">
+			<h1
+				class="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100 mb-4"
+			>
 				Blog
 			</h1>
 			<p class="text-lg text-gray-700 dark:text-gray-300">
@@ -95,9 +115,7 @@
 			</div>
 		{:else}
 			<div class="text-center py-16">
-				<p class="text-lg text-gray-600 dark:text-gray-400">
-					No blog posts yet. Check back soon!
-				</p>
+				<p class="text-lg text-gray-600 dark:text-gray-400">No blog posts yet. Check back soon!</p>
 			</div>
 		{/if}
 	</main>

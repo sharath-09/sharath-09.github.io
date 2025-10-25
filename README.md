@@ -34,9 +34,8 @@ Blogs are to be written in markdown files, using the template provided in `templ
 
 Images embedded into blogs are to be placed in `static/images/`.
 
-
 ## References
 
-* [Sveltekit-docs](https://svelte.dev/)
-* [mdsvex](https://mdsvex.pngwn.io/) for markdown rendering
-* [Sveltekit-blog-starter](https://github.com/josh-collinsworth/sveltekit-blog-starter): Used as reference implementation for markdown files, and structure.
+- [Sveltekit-docs](https://svelte.dev/)
+- [mdsvex](https://mdsvex.pngwn.io/) for markdown rendering
+- [Sveltekit-blog-starter](https://github.com/josh-collinsworth/sveltekit-blog-starter): Used as reference implementation for markdown files, and structure.
