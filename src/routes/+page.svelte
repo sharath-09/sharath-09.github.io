@@ -1,6 +1,6 @@
 <script lang="ts">
   import imageSrc from "$lib/assets/headshot.jpeg";
-  import Card from "flowbite-svelte/Card.svelte"
+    import Card from "flowbite-svelte/Card.svelte"
   import GradientButton  from "flowbite-svelte/GradientButton.svelte";
   import { onMount } from "svelte";
   import ArrowUpRightFromSquareOutline from "flowbite-svelte-icons/ArrowUpRightFromSquareOutline.svelte";
@@ -71,8 +71,8 @@
       <span class="flex-1">{ title }</span>
     </h5>
     <div class="mb-4 flex items-center justify-center gap-2 border-b border-gray-200 dark:border-gray-700 pb-3">
-      <p class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-500">{ subheading }</p>
-      <ArrowUpRightFromSquareOutline class="shrink-0 h-6 w-6 text-gray-500 dark:text-gray-500" />
+      <p class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{ subheading }</p>
+      <ArrowUpRightFromSquareOutline class="shrink-0 h-6 w-6 text-gray-500 dark:text-gray-400" />
     </div>
     <p class="leading-relaxed font-normal text-gray-700 dark:text-gray-400">{ text }</p>
   </Card>

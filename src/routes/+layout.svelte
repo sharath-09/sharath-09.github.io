@@ -27,7 +27,6 @@
 
   <div class="flex items-center gap-2 md:order-2">
     <DarkMode class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" aria-label="Toggle dark mode" />
-    <NavHamburger />
   </div>
 
   <NavUl class="order-1" {activeUrl}>
