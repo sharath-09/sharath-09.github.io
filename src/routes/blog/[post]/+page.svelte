@@ -28,7 +28,9 @@
 		</h1>
 
 		<!-- Meta Information -->
-		<div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400 pb-6 mb-8 border-b border-gray-200 dark:border-gray-700">
+		<div
+			class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400 pb-6 mb-8 border-b border-gray-200 dark:border-gray-700"
+		>
 			<div>
 				<span class="font-semibold">Published:</span>
 				<time>{date}</time>
@@ -42,16 +44,18 @@
 		</div>
 
 		<!-- Post Content with typography styles -->
-		<div class="prose prose-lg dark:prose-invert max-w-none
+		<div
+			class="prose prose-lg dark:prose-invert max-w-none
 			prose-headings:text-gray-900 dark:prose-headings:text-gray-100
 			prose-p:text-gray-700 dark:prose-p:text-gray-50 dark:text-gray-300
 			prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline
 			prose-strong:text-gray-900 dark:prose-strong:text-gray-100
-			prose-code:text-pink-600 dark:prose-code:text-pink-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-			prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800 prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-gray-700
+			prose-pre:!bg-[#0d1117] dark:prose-pre:!bg-[#0d1117] prose-pre:border prose-pre:border-gray-700 dark:prose-pre:border-gray-700 prose-pre:rounded-lg prose-pre:shadow-lg
+			prose-pre:overflow-x-auto prose-pre:p-4
 			prose-blockquote:border-indigo-500 dark:prose-blockquote:border-indigo-400
-			prose-img:rounded-lg prose-img:shadow-md">
+			prose-img:rounded-lg prose-img:shadow-md"
+		>
 			<PostContent />
 		</div>
-
+	</article>
 </div>
