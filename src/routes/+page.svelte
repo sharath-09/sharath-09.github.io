@@ -1,6 +1,8 @@
 <script lang="ts">
   import imageSrc from "$lib/assets/headshot.jpeg";
   import { Card, GradientButton } from "flowbite-svelte";
+  import { onMount } from "svelte";
+  import ArrowUpRightFromSquareOutline from "flowbite-svelte-icons/ArrowUpRightFromSquareOutline.svelte";
 
   // Update these with your real links/data
   const links = {
@@ -12,21 +14,25 @@
 
   const projectCards = [
     {
-      title: "Investigating Adversarial Robustness for Facial Recognition Systems",
+      title: "Adversarial Attacks for Facial Recognition Systems",
       subheading: "DICTA 2025 Publication",
-      text: ">Assisted in research Investigating the effect of image preprocessing on Facial Recognition Adversarial Systems."
-    },
-    {
-      title: "Pose Estimation of Ground Vehicles",
-      subheading: "Research Study.",
-      text: "Estimating the pose of ground vehicles using RGB Images."
+      text: "Investigating the effect of image preprocessing on Adversarial Attacks for Facial Recognition Systems."
     },
     {
       title: "Deepfake Evaluation Toolkit",
       subheading: "Research Study",
       text: "Conducted a scoping study into Lip Sync deepfake technologies, and developed a testing suite to judge the effectiveness of such techniqeus."
-    }
-
+    },
+    {
+      title: "6DoF Pose Estimation of Ground Vehicles using Monocular RGB images",
+      subheading: "Research Study",
+      text: "Replicated a regression-based pose estimation method to directly regress the 6DoF coordinates of a ground vehicle"
+    },
+    {
+      title: "Vector Similarity Search",
+      subheading: "Self-learning Project",
+      text: "Implements a semantic search engine for RAG workflows in Go. Retrieve semantically similar sentence pairs from a database, given a query string. Optimised for speed."
+    },
   ]
   let selectedSection = $state("");
 
@@ -39,6 +45,28 @@
     "Software Engineering",
   ];
 
+  // Track dark mode state
+  let isDarkMode = $state(false);
+
+  onMount(() => {
+    // Check initial dark mode state
+    isDarkMode = document.documentElement.classList.contains('dark');
+
+    // Watch for theme changes
+    const observer = new MutationObserver(() => {
+      isDarkMode = document.documentElement.classList.contains('dark');
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  });
+
+  // Derive button color based on theme
+  let buttonColor: string = $derived(isDarkMode ? 'purpleToBlue' : 'pinkToOrange');
 
 </script>
 
@@ -47,7 +75,10 @@
     <h5 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex items-start gap-2">
       <span class="flex-1">{ title }</span>
     </h5>
-    <p class="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-500 border-b border-gray-200 dark:border-gray-700 pb-3">{ subheading }</p>
+    <div class="mb-4 flex items-center justify-center gap-2 border-b border-gray-200 dark:border-gray-700 pb-3">
+      <p class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-500">{ subheading }</p>
+      <ArrowUpRightFromSquareOutline class="shrink-0 h-6 w-6 text-gray-500 dark:text-gray-500" />
+    </div>
     <p class="leading-relaxed font-normal text-gray-700 dark:text-gray-400">{ text }</p>
   </Card>
 {/snippet}
@@ -66,7 +97,7 @@
         <img
           src={imageSrc}
           alt="Portrait of Sharath"
-          class="rounded-2xl w-28 h-28 sm:w-32 sm:h-32 object-cover shadow-lg ring-2 ring-indigo-500/20
+          class="rounded-2xl w-28 h-28 sm:w-32 sm:h-32 object-cover shadow-lg ring-2 ring-orange-700/50 dark:ring-indigo-500/20
                  transition-transform duration-300 hover:scale-[1.03]"
           loading="eager"
         />
@@ -80,7 +111,7 @@
             <span class="text-blue-600 dark:text-blue-400 font-medium">elegant, scalable software</span>.
           </p>
           <div class="flex flex-wrap items-center gap-3 justify-center sm:justify-start">
-            <GradientButton color="purpleToBlue">View Projects</GradientButton>
+            <GradientButton color={buttonColor}>View Projects</GradientButton>
             <div class="flex gap-4 text-sm">
               <a href={links.github} class="hover:opacity-80" aria-label="GitHub">GitHub</a>
               <a href={links.linkedin} class="hover:opacity-80" aria-label="LinkedIn">LinkedIn</a>
