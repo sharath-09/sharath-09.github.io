@@ -8,11 +8,11 @@
 	import NavBrand from 'flowbite-svelte/NavBrand.svelte';
 	import NavUl from 'flowbite-svelte/NavUl.svelte';
 	import NavLi from 'flowbite-svelte/NavLi.svelte';
-	import NavHamburger from 'flowbite-svelte/NavLi.svelte';
 	import DarkMode from 'flowbite-svelte/DarkMode.svelte';
 
 	let { children } = $props();
 	import '../app.css';
+
 </script>
 
 <svelte:head>
