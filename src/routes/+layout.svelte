@@ -21,7 +21,7 @@
 </svelte:head>
 
 <Navbar>
-	<NavBrand href="/">
+	<NavBrand href={resolve("/")}>
 		<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Sharath</span>
 	</NavBrand>
 
