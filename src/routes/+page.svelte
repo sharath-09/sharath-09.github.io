@@ -17,23 +17,27 @@
 		{
 			title: 'Adversarial Attacks for Facial Recognition Systems',
 			subheading: 'DICTA 2025 Publication',
-			text: 'Investigating the effect of image preprocessing on Adversarial Attacks for Facial Recognition Systems.'
-		},
-		{
-			title: 'Deepfake Evaluation Toolkit',
-			subheading: 'Research Study',
-			text: 'Conducted a scoping study into Lip Sync deepfake technologies, and developed a testing suite to judge the effectiveness of such techniqeus.'
+			text: 'Investigating the effect of image preprocessing on Adversarial Attacks for Facial Recognition Systems.',
+			link: 'https://arxiv.org/abs/2510.17169'
 		},
 		{
 			title: '6DoF Pose Estimation of Ground Vehicles using Monocular RGB images',
 			subheading: 'Research Study',
-			text: 'Replicated a regression-based pose estimation method to directly regress the 6DoF coordinates of a ground vehicle'
+			text: 'Replicated a regression-based pose estimation method to directly regress the 6DoF coordinates of a ground vehicle',
+			link: 'https://github.com/sharath-08/6dof-pose/blob/main/Topics__Final_Report.pdf'
 		},
 		{
 			title: 'Vector Similarity Search',
 			subheading: 'Self-learning Project',
-			text: 'Implements a semantic search engine for RAG workflows in Go. Retrieve semantically similar sentence pairs from a database, given a query string. Optimised for speed.'
-		}
+			text: 'Implements a semantic search engine for RAG workflows in Go. Retrieve semantically similar sentence pairs from a database, given a query string. Optimised for speed.',
+			link: 'https://github.com/sharath-09/vector-db'
+		},
+		{
+			title: 'Match Head Movements to Music',
+			subheading: 'Passion Project',
+			text: 'Using keypoint tracking, to augment music to head motion in real-time. An interactive art + coding project.',
+			link: 'https://github.com/sharath-09/face-tune'
+		},
 	];
 
 	function scrollToTarget(targetID: string) {
@@ -65,8 +69,8 @@
 	let buttonColor: string = $derived(isDarkMode ? 'purpleToBlue' : 'pinkToOrange');
 </script>
 
-{#snippet projectCard(title: string, subheading: string, text: string)}
-	<Card href="/cards" class="w-full sm:w-80 p-4 sm:p-6 md:p-8">
+{#snippet projectCard(title: string, subheading: string, text: string, link: string)}
+	<Card href={link} class="w-full sm:w-80 p-4 sm:p-6 md:p-8">
 		<h5
 			class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex items-start gap-2"
 		>
@@ -182,7 +186,7 @@
 					</h2>
 					<div class="flex flex-col sm:flex-row flex-wrap items-stretch gap-6 justify-center mt-6">
 						{#each projectCards as card}
-							{@render projectCard(card['title'], card['subheading'], card['text'])}
+							{@render projectCard(card['title'], card['subheading'], card['text'], card['link'])}
 						{/each}
 					</div>
 				</div>
