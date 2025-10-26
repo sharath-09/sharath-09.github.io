@@ -1,33 +1,24 @@
-# sv
+# my-portfolio-app
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This repo contains the code for my portfolio website/blog.
 
-## Creating a project
+## Dev Set-up
 
-If you're seeing this, you've probably already done this step. Congrats!
+Install dependencies
 
 ```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm run install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+and run a development server
 
 ```sh
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Deployment
 
-To create a production version of your app:
+To create a production version of the app:
 
 ```sh
 npm run build
@@ -36,3 +27,15 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Adding a blog
+
+Blogs are to be written in markdown files, using the template provided in `templates/`, obtained from [source](https://github.com/josh-collinsworth/sveltekit-blog-starter/blob/main/src/lib/posts/heading-links-example.md).
+
+Images embedded into blogs are to be placed in `static/images/`.
+
+## References
+
+- [Sveltekit-docs](https://svelte.dev/)
+- [mdsvex](https://mdsvex.pngwn.io/) for markdown rendering
+- [Sveltekit-blog-starter](https://github.com/josh-collinsworth/sveltekit-blog-starter): Used as reference implementation for markdown files, and structure.
