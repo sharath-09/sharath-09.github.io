@@ -10,7 +10,7 @@
 		resume: '/Sharath_Kumar_Resume.pdf',
 		github: 'https://github.com/sharath-09',
 		linkedin: 'https://www.linkedin.com/in/sharath-2b91a1178/',
-		email: 'sharathsureshkumar@gmail.com'
+		email: 'sharathkumar.parsley498@silomails.com'
 	};
 
 	const projectCards = [
@@ -126,7 +126,7 @@
 						<div class="flex gap-4 text-sm">
 							<a href={links.github} class="hover:opacity-80" aria-label="GitHub">GitHub</a>
 							<a href={links.linkedin} class="hover:opacity-80" aria-label="LinkedIn">LinkedIn</a>
-							<a href={links.email} class="hover:opacity-80" aria-label="Email">Email</a>
+							<a href="mailto:{links.email}" class="hover:opacity-80" aria-label="Email">Email</a>
 						</div>
 					</div>
 				</div>

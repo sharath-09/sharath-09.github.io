@@ -6,7 +6,7 @@
 	import LinkedinSolid from 'flowbite-svelte-icons/LinkedinSolid.svelte';
 
 	const contact = {
-		email: 'sharathsureshkumar@gmail.com',
+		email: 'sharathkumar.parsley498@silomails.com',
 		github: 'https://github.com/sharath-09',
 		linkedin: 'https://www.linkedin.com/in/sharath-2b91a1178/'
 	};
@@ -101,7 +101,7 @@
 
 		<!-- Footer -->
 		<footer class="py-8 text-center text-xs text-gray-500">
-			© {new Date().getFullYear()} Sharath. Built with SvelteKit + Tailwind + Flowbite.
+			ï¿½ {new Date().getFullYear()} Sharath. Built with SvelteKit + Tailwind + Flowbite.
 		</footer>
 	</main>
 </div>
