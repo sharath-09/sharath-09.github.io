@@ -1,5 +1,6 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
+	import { resolve } from '$app/paths';
 
 	import { page } from '$app/state';
 	let activeUrl = $derived(page.url.pathname);
@@ -16,7 +17,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href={favicon}/>
 </svelte:head>
 
 <Navbar>
@@ -32,9 +33,9 @@
 	</div>
 
 	<NavUl class="order-1" {activeUrl}>
-		<NavLi href="/">home</NavLi>
-		<NavLi href="/blog">blog</NavLi>
-		<NavLi href="/contact">contact</NavLi>
+		<NavLi href={resolve("/")}>home</NavLi>
+		<NavLi href={resolve("/blog")}>blog</NavLi>
+		<NavLi href={resolve("/contact")}>contact</NavLi>
 	</NavUl>
 </Navbar>
 

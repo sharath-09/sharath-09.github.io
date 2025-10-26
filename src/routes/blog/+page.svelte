@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { BlogPost } from '$lib/types/blog';
+	import { resolve } from '$app/paths';
 	import Card from 'flowbite-svelte/Card.svelte';
 
 	let { data } = $props();
@@ -16,7 +17,7 @@
 
 {#snippet blogPost(post: BlogPost)}
 	<Card class="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
-		<a href="/blog/{post.slug}" class="block group">
+		<a href={resolve(`/blog/${post.slug}`)} class="block group">
 			<!-- Cover Image -->
 			{#if post.coverImage}
 				<div class="-mx-6 -mt-6 mb-6 overflow-hidden">
