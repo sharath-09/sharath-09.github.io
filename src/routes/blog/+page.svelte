@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { BlogPost } from '$lib/types/blog';
+	import imageSrc from '$lib/assets/repository-pattern.jpg';
 	import { resolve } from '$app/paths';
 	import Card from 'flowbite-svelte/Card.svelte';
 
@@ -22,7 +23,7 @@
 			{#if post.coverImage}
 				<div class="-mx-6 -mt-6 mb-6 overflow-hidden">
 					<img
-						src='$lib/assets/{post.coverImage}'
+						src={imageSrc}
 						alt={post.title}
 						class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
 						loading="lazy"

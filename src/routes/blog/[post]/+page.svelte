@@ -1,4 +1,6 @@
 <script>
+	import imageSrc from '$lib/assets/repository-pattern.jpg';
+
 	let { data } = $props();
 
 	const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } =
@@ -13,7 +15,7 @@
 		{#if coverImage}
 			<img
 				class="rounded-2xl w-full object-cover shadow-lg ring-2 ring-gray-200 dark:ring-gray-700 mb-8"
-				src='$lib/assets/{coverImage}'
+				src={imageSrc}
 				alt=""
 				style="aspect-ratio: {coverWidth} / {coverHeight};"
 				width={coverWidth}
