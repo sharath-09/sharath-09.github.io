@@ -100,8 +100,7 @@
 				<img
 					src={imageSrc}
 					alt="Portrait of Sharath"
-					loading="eager"
-    				fetchpriority="high"
+					loading="lazy"
 					class="rounded-2xl w-28 h-28 sm:w-32 sm:h-32 object-cover shadow-lg ring-2 ring-orange-700/50 dark:ring-indigo-500/20
                  transition-transform duration-300 hover:scale-[1.03]"
 				/>
