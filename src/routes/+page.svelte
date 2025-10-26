@@ -1,9 +1,15 @@
 <script lang="ts">
-	import imageSrc from '$lib/assets/headshot.webp';
+	
 	import Card from 'flowbite-svelte/Card.svelte';
 	import GradientButton from 'flowbite-svelte/GradientButton.svelte';
 	import { onMount } from 'svelte';
 	import ArrowUpRightFromSquareOutline from 'flowbite-svelte-icons/ArrowUpRightFromSquareOutline.svelte';
+	import type { PageProps } from './$types';
+
+	let { data }: PageProps = $props();
+
+	//Get from loader - prevents hero image not rendering on page loading in Pre-render mode
+	let headshotImg = data.imageSrc
 
 	// Update these with your real links/data
 	const links = {
@@ -98,7 +104,7 @@
 		<section class="py-10 sm:py-14">
 			<div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
 				<img
-					src={imageSrc}
+					src={headshotImg}
 					alt="Portrait of Sharath"
 					loading="lazy"
 					class="rounded-2xl w-28 h-28 sm:w-32 sm:h-32 object-cover shadow-lg ring-2 ring-orange-700/50 dark:ring-indigo-500/20
