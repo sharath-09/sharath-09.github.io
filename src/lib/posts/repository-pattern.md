@@ -5,7 +5,7 @@ updated: '2025-10-25'
 categories:
   - 'software design'
   - 'golang'
-coverImage: '/images/repository-pattern.jpg'
+coverImage: 'repository-pattern.jpg'
 coverWidth: 16
 coverHeight: 9
 excerpt: A deep dive into the repository pattern and how it transformed my approach to building scalable Go applications through clean architecture principles.

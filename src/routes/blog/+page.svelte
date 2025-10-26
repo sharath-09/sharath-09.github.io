@@ -22,7 +22,7 @@
 			{#if post.coverImage}
 				<div class="-mx-6 -mt-6 mb-6 overflow-hidden">
 					<img
-						src={post.coverImage}
+						src='$lib/assets/{post.coverImage}'
 						alt={post.title}
 						class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
 						loading="lazy"

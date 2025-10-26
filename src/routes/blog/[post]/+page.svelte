@@ -1,4 +1,3 @@
-<!-- This file renders each individual blog post for reading. Be sure to update the svelte:head below -->
 <script>
 	let { data } = $props();
 
@@ -14,7 +13,7 @@
 		{#if coverImage}
 			<img
 				class="rounded-2xl w-full object-cover shadow-lg ring-2 ring-gray-200 dark:ring-gray-700 mb-8"
-				src={coverImage}
+				src='$lib/assets/{coverImage}'
 				alt=""
 				style="aspect-ratio: {coverWidth} / {coverHeight};"
 				width={coverWidth}

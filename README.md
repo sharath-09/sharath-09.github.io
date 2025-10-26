@@ -32,7 +32,7 @@ You can preview the production build with `npm run preview`.
 
 Blogs are to be written in markdown files, using the template provided in `templates/`, obtained from [source](https://github.com/josh-collinsworth/sveltekit-blog-starter/blob/main/src/lib/posts/heading-links-example.md).
 
-Images embedded into blogs are to be placed in `static/images/`.
+Images embedded into blogs are to be placed in `src/lib/assets/`.
 
 ## References
 
