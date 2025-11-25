@@ -4,12 +4,7 @@
 	import GradientButton from 'flowbite-svelte/GradientButton.svelte';
 	import { onMount } from 'svelte';
 	import ArrowUpRightFromSquareOutline from 'flowbite-svelte-icons/ArrowUpRightFromSquareOutline.svelte';
-	import type { PageProps } from './$types';
-
-	let { data }: PageProps = $props();
-
-	//Get from loader - prevents hero image not rendering on page loading in Pre-render mode
-	let headshotImg = data.imageSrc
+	import headshotImg from '$lib/assets/headshot.webp'
 
 	// Update these with your real links/data
 	const links = {
